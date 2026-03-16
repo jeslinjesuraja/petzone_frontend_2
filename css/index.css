@@ -1,0 +1,284 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f6f8fb;
+    color: #333;
+}
+
+
+nav {
+    background: #1f2937;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+}
+
+.nav-links a::after {
+     content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ffb703;
+    left: 0;
+    bottom: -6px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+.hero {
+    height: 90vh;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url("../assets/image.png") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.hero-content {
+    max-width: 850px;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero-buttons a {
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: #2c7be5;
+    color: white;
+}
+
+.btn-secondary {
+    background: #ffb703;
+    color: black;
+}
+
+/* ===== SECTION COMMON ===== */
+.section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+    scroll-margin-top: 120px;
+
+
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.section p {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    color: #555;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+/* ===== FEATURES ===== */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card h3 {
+    margin-bottom: 12px;
+}
+
+/* ===== TRUST ===== */
+.trust {
+
+    padding: 80px 20px;
+    background-image: linear-gradient(to right, white, #1f2937);
+}
+
+.trust-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.trust-item {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 16px;
+}
+
+/* ===== HOW IT WORKS ===== */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.step {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== CTA ===== */
+.cta {
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+    background-image: linear-gradient(to left, #b0cff88a, #1f2937);
+}
+
+.cta h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.cta a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 36px;
+    background: white;
+    color: #2c7be5;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #090a0a;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px) {
+    nav {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
+    .section {
+        margin: 40px auto;
+    }
+
+    .section h2 {
+        font-size: 28px;
+    }
+
+    .trust-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:480px) {
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+}

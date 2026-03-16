@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Your Pet | Pet-Zone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/edit.css">
+</head>
+
+<body>
+
+    <div class="page-header">
+        <a href="mypets.html" class="back-home">← Back to My Pets</a>
+    </div>
+
+    <div class="container">
+        <h2>🐾 Edit Pet Details</h2>
+
+        <form id="editPetForm">
+            <input type="text" id="petName" name="pet_name" placeholder="Pet Name" required>
+
+            <select id="petType" name="pet_type" required onchange="updateBreeds()">
+                <option value="">Select Pet Type</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="bird">Bird</option>
+                <option value="fish">Fish</option>
+            </select>
+
+            <input type="number" id="petAge" name="age_months" placeholder="Age (months)" min="1" required>
+
+            <div id="vaccinatedBox">
+                <select id="vaccinated" name="vaccinated" required>
+                    <option value="">Vaccinated?</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <select id="gender" name="gender" required>
+                <option value="">Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <select id="breed" name="breed" required>
+                <option value="">Select Breed</option>
+            </select>
+
+            <input type="number" id="price" name="price" placeholder="Price" required>
+
+            <textarea id="description" name="description" rows="3" placeholder="Pet Description" required></textarea>
+
+            <button type="submit">Update Pet</button>
+        </form>
+    </div>
+
+    <script src="../java_script/auth_helper.js"></script>
+    <script src="../java_script/edit.js">
+  
+    </script>
+
+</body>
+
+</html>

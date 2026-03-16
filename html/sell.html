@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sell Your Pet | Pet-Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/sell.css">
+</head>
+
+<body>
+
+  <div class="page-header">
+    <a href="../index.html" class="back-home">← Back to Home</a>
+  </div>
+
+  <div class="container">
+    <h2>🐾 Sell Your Pet</h2>
+
+    <form id="sellForm" enctype="multipart/form-data">
+
+      <input type="text" name="name" placeholder="Pet Name" required>
+
+      <select name="type" id="petType" required onchange="updateBreeds()">
+        <option value="">Select Pet Type</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="bird">Bird</option>
+        <option value="fish">Fish</option>
+      </select>
+
+      <input type="number" name="age" placeholder="Age (months)" min="1" required>
+
+      <div id="vaccinatedBox">
+        <select name="vaccinated" id="vaccinated" required>
+          <option value="">Vaccinated?</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <select name="gender" required>
+        <option value="">Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+      <select name="breed" id="breed" required>
+        <option value="">Select Breed</option>
+      </select>
+
+      <input type="number" name="price" placeholder="Price (₹)" required>
+
+      <textarea name="description" rows="3" placeholder="Pet Description" required></textarea>
+
+      <!-- Simplified Image Section -->
+      <div class="image-upload-section">
+        <label>🖼️ Pet Images (Max 7)</label>
+        
+        <div class="file-drop-area" id="fileDropArea">
+            <span id="dropText">📷 Click or drag & drop images</span>
+            <input type="file" id="fileInput" accept="image/*" multiple style="display:none;">
+        </div>
+
+        <button type="button" class="add-btn" onclick="addUrl()" style="margin-top:10px;">🔗 Add Image by URL</button>
+
+        <!-- Preview -->
+        <div id="imagePreview" class="preview-container"></div>
+      </div>
+
+      <button type="submit" id="submitBtn">Post Pet 🐾</button>
+    </form>
+
+    <a href="../html/mypets.html">
+      <button type="button" class="secondary-btn">My Posted Pets</button>
+    </a>
+  </div>
+
+  <script src="../java_script/auth_helper.js"></script>
+  
+  <script src="../java_script/sell.js"></script>
+
+</body>
+
+</html>

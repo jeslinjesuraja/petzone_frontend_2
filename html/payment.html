@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Checkout | Pet-Zone</title>
+  <link rel="stylesheet" href="../css/payment.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav>
+    <h1>🐾 Pet-Zone</h1>
+    <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">🔒 Secure 256-bit Encryption</div>
+  </nav>
+
+  <div class="container">
+    <!-- Payment Methods -->
+    <div class="payment-section">
+      <div class="section-title">Select Payment Method</div>
+      <div class="method-grid">
+        <label class="payment-method active" onclick="selectMethod('card')">
+          <img src="https://img.icons8.com/color/48/visa.png" class="method-icon">
+          <div class="method-info">
+            <strong>Credit / Debit Card</strong>
+            <span>Securely pay using Visa, Mastercard, or RuPay</span>
+          </div>
+          <input type="radio" name="payment" value="card" checked>
+        </label>
+
+        <!-- Card Details Content (Visible by default) -->
+        <div id="cardContent" class="method-content" style="display: block;">
+            <div class="card-details-form">
+                <div class="form-group">
+                    <label>Card Number</label>
+                    <input type="text" id="cardNumber" class="input-styled" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" oninput="formatCardNumber(this)">
+                </div>
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Expiry Date</label>
+                        <input type="text" id="cardExpiry" class="input-styled" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)">
+                    </div>
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="password" id="cardCvv" class="input-styled" placeholder="***" maxlength="3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Cardholder Name</label>
+                    <input type="text" id="cardName" class="input-styled" placeholder="FULL NAME ON CARD">
+                </div>
+            </div>
+        </div>
+
+        <label class="payment-method" onclick="selectMethod('upi')">
+          <img src="https://img.icons8.com/color/48/upi.png" class="method-icon">
+          <div class="method-info">
+            <strong>UPI</strong>
+            <span>Pay instantly with GPay, PhonePe, or Paytm</span>
+          </div>
+          <input type="radio" name="payment" value="upi">
+        </label>
+
+        <!-- UPI Content -->
+        <div id="upiContent" class="method-content">
+            <div class="upi-section">
+                <div class="qr-placeholder">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=PetZonePayment" alt="QR Code">
+                </div>
+                <div class="form-group">
+                    <label>Or enter UPI ID</label>
+                    <input type="text" id="upiId" class="input-styled" placeholder="username@upi">
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary-section">
+      <div class="summary-title">Order Summary</div>
+
+      <div class="summary-row">
+        <span>Pet Selection</span>
+        <span id="summaryPetName" style="font-weight: 600;">Loading...</span>
+      </div>
+      <div class="summary-row">
+        <span>Type/Breed</span>
+        <span id="summaryPetType">-</span>
+      </div>
+      <div class="summary-row">
+        <span>Adoption Fee</span>
+        <span id="summaryPrice">₹0</span>
+      </div>
+      <div class="summary-row">
+        <span>Processing Fee</span>
+        <span>₹250</span>
+      </div>
+
+      <div class="summary-row total">
+        <span>Total Payable</span>
+        <span id="summaryTotal">₹0</span>
+      </div>
+
+      <button class="pay-btn" id="payBtn">Complete Payment 🐾</button>
+      <p style="text-align: center; font-size: 0.75rem; opacity: 0.6; margin-top: 20px;">
+        By clicking, you agree to our Terms of Adoption & Care.
+      </p>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="success-modal" id="successModal">
+    <div class="modal-content">
+      <div class="success-icon">✓</div>
+      <h2>Payment Receipt</h2>
+      <p id="transactionId" style="font-family: monospace; font-size: 0.8rem; margin-bottom: 10px;"></p>
+      <p>Congratulations! Your adoption request has been finalized successfully.</p>
+      <button class="pay-btn" onclick="window.location.href='pets.html'">View All Pets</button>
+    </div>
+  </div>
+
+  <script src="../java_script/payment.js">
+  </script>
+</body>
+
+</html>

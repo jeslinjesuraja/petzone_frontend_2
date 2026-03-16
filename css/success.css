@@ -1,0 +1,130 @@
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+/* ===== BODY ===== */
+html, body{
+    height:100%;
+}
+
+body{
+    background:linear-gradient(to right,white,gray);
+    display:flex;
+    flex-direction:column;
+}
+
+/* ===== TOP BAR ===== */
+.topbar{
+    background:#1f1f1f;
+    padding:15px 30px;
+}
+
+.topbar a{
+    color:#fff;
+    text-decoration:none;
+    font-size:15px;
+}
+
+.topbar a:hover{
+    text-decoration:underline;
+}
+
+/* ===== WRAPPER (FULL SCREEN CENTER) ===== */
+.wrapper{
+    flex:1; /* 🔥 takes remaining height */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* ===== CARD ===== */
+.card{
+    background:#fff;
+    width:100%;
+    max-width:420px;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.12);
+    text-align:center;
+}
+
+/* ===== ICON ===== */
+.icon{
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+/* ===== TITLE ===== */
+.card h2{
+    color:#222;
+    margin-bottom:20px;
+}
+
+/* ===== DETAILS ===== */
+.details{
+    text-align:left;
+    margin:20px 0;
+}
+
+.details p{
+    font-size:15px;
+    color:#444;
+    margin:10px 0;
+}
+
+.details b{
+    color:#111;
+}
+
+/* ===== IMAGE ===== */
+.pet-img{
+    width:100%;
+    border-radius:14px;
+    margin-top:10px;
+}
+
+/* ===== BUTTONS ===== */
+.actions{
+    margin-top:25px;
+}
+
+.actions a{
+    display:inline-block;
+    margin:8px;
+    padding:12px 28px;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+}
+
+/* Button colors */
+.btn-primary{
+    background:#0a64da;
+    color:white;
+}
+.btn-primary:hover{ background:#084fb0; }
+
+.btn-secondary{
+    background:#e9eef7;
+    color:#0a64da;
+}
+.btn-secondary:hover{ background:#dbe5f5; }
+
+.btn-tertiary{
+    background:#1f1f1f;
+    color:white;
+}
+.btn-tertiary:hover{ background:#000; }
+
+/* ===== MOBILE ===== */
+@media(max-width:480px){
+    .card{
+        padding:25px;
+    }
+}

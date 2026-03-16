@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Details | Pet-Zone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/details1.css">
+</head>
+
+<body>
+
+    <div class="header">
+        🐾 Pet Details
+    </div>
+
+    <div class="container">
+
+        <!-- IMAGE GALLERY -->
+        <div class="image-section">
+            <div class="main-image">
+                <img id="mainPetImage" src="https://via.placeholder.com/600x400?text=Loading..." alt="Pet Image">
+            </div>
+            <div class="thumbnails" id="thumbnails">
+                <!-- Thumbnails can be added here if multiple images are supported -->
+            </div>
+        </div>
+
+        <!-- DETAILS -->
+        <div class="details">
+            <h2 id="petName">Loading...</h2>
+            <p><strong>Age:</strong> <span id="petAge"></span> months</p>
+            <p><strong>Gender:</strong> <span id="petGender"></span></p>
+            <p><strong>Breed:</strong> <span id="petBreed"></span></p>
+            <p><strong>Vaccinated:</strong> <span id="petVaccinated"></span></p>
+            <p><strong>Description:</strong> <span id="petDescription"></span></p>
+
+            <div class="price" id="petPrice">₹0</div>
+
+            <div class="buttons">
+                <a href="../html/seller.html" id="contactSellerBtn">
+                    <button class="contact">Contact Seller</button>
+                </a>
+                <a href="../html/pets.html">
+                    <button class="back">Back to Listings</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../java_script/details.js">
+    </script>
+
+</body>
+
+</html>

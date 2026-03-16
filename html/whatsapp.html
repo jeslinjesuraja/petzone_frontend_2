@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry | PetZone</title>
+    <link rel="stylesheet" href="../css/whatsapp.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="chat-header">
+            <img src="../assets/dog.jpg" alt="Pet" class="header-avatar" id="petAvatar">
+            <div class="header-info">
+                <h2 id="petName">Loading...</h2>
+                <p id="petStatus">Online • Adoption Inquiry</p>
+            </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="message received">
+                Hi! Is this pet still available? I'm very interested.
+                <div class="timestamp">10:45 AM</div>
+            </div>
+
+            <div class="message sent">
+                Yes, it is! You can confirm the adoption here or chat with me directly on WhatsApp.
+                <div class="timestamp">10:46 AM</div>
+            </div>
+        </div>
+
+        <!-- Actions Area -->
+        <div class="action-area">
+            <a href="#" class="wa-btn" id="waContactBtn" target="_blank">
+                <img src="https://img.icons8.com/color/24/whatsapp--v1.png" alt="WA">
+                Chat on WhatsApp
+            </a>
+
+            <button class="confirm-btn" id="confirmOrderBtn">
+                Confirm & Pay ₹<span id="displayPrice">0</span> 🐾
+            </button>
+
+            <a href="pets.html" class="back-link">Back to Listings</a>
+        </div>
+    </div>
+
+    <script src="../java_script/whatsapp.js"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Posted | Pet-Zone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/success.css">
+</head>
+
+<body>
+
+    <div class="topbar">
+        <a href="../index.html">⬅ Back to Home</a>
+    </div>
+
+    <div class="wrapper">
+        <div class="card">
+
+            <div class="icon">🐶</div>
+            <h2>Pet Posted Successfully</h2>
+
+            <div class="details" id="successDetails">
+                <p>Loading pet details...</p>
+            </div>
+
+            <img src="../assets/cat.jpg" class="pet-img" id="successPetImg">
+
+            <div class="actions">
+                <a href="../html/pets.html" class="btn-primary">View All Pets</a>
+                <a href="../html/mypets.html" class="btn-tertiary">View My Pets</a>
+                <a href="../html/sell.html" class="btn-secondary">Post Another Pet</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        async function loadSuccessDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const petId = urlParams.get('id');
+
+            if (!petId) {
+                console.error("Pet ID missing from URL");
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://127.0.0.1:5000/pets/${petId}`);
+                if (!response.ok) throw new Error("Pet not found");
+
+                const pet = await response.json();
+
+                const detailsDiv = document.getElementById('successDetails');
+                detailsDiv.innerHTML = `
+                <p><b>Pet Name:</b> ${pet.pet_name}</p>
+                <p><b>Pet Type:</b> ${pet.pet_type}</p>
+                <p><b>Age:</b> ${pet.age_months} Months</p>
+                <p><b>Price:</b> ₹${pet.price.toLocaleString()}</p>
+                <p><b>Description:</b> ${pet.description}</p>
+            `;
+
+                const img = document.getElementById('successPetImg');
+                if (pet.image && pet.image.length > 0) {
+                    img.src = pet.image[0]; // Show the first uploaded image
+                } else {
+                    img.src = "../assets/cat.jpg"; // Default placeholder
+                }
+                img.onerror = () => { img.src = "../assets/cat.jpg"; };
+
+            } catch (error) {
+                console.error("Error loading success details:", error);
+            }
+        }
+
+        window.onload = loadSuccessDetails;
+    </script>
+
+</body>
+
+</html>

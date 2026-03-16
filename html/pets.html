@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Available Pets | Pet-Zone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/pets.css">
+
+</head>
+
+<body>
+    <a href="../index.html" class="floating-home">🏠 Home</a>
+
+    <div class="header">
+        <div>🐾 Available Pets</div>
+        <div class="Search">
+            <input type="text" id="petSearch" placeholder="Search by name...">
+        </div>
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Pets</button>
+        <button class="filter-btn" data-filter="dog">🐶 Dogs</button>
+        <button class="filter-btn" data-filter="cat">🐱 Cats</button>
+        <button class="filter-btn" data-filter="bird">🐦 Birds</button>
+        <button class="filter-btn" data-filter="fish">🐠 Fish</button>
+    </div>
+
+    <div class="container" id="petContainer">
+        <div id="noResults">No pets found matching your search. 🐾</div>
+        <!-- Cards will be injected here by pets.js -->
+    </div>
+    <script src="../java_script/auth_helper.js"></script>
+    <script src="../java_script/pets.js"></script>
+   
+    <script>// Check login
+    if (!authHelper.getToken()) {
+      alert("Please login first to post a pet.");
+      window.location.href = "login.html";
+    }
+
+    // Tab switching - only toggles visibility, sell.js handles the rest
+    function switchTab(tab) {
+      if (tab === 'file') {
+        document.getElementById('fileTab').style.display = 'block';
+        document.getElementById('urlTab').style.display = 'none';
+        document.getElementById('fileTabBtn').classList.add('active');
+        document.getElementById('urlTabBtn').classList.remove('active');
+      } else {
+        document.getElementById('fileTab').style.display = 'none';
+        document.getElementById('urlTab').style.display = 'block';
+        document.getElementById('urlTabBtn').classList.add('active');
+        document.getElementById('fileTabBtn').classList.remove('active');
+      }
+      document.getElementById('imagePreview').innerHTML = '';
+    }
+
+    // Breed dropdown update
+    function updateBreeds() {
+      const petType = document.getElementById("petType").value;
+      const breed = document.getElementById("breed");
+      breed.innerHTML = '<option value="">Select Breed</option>';
+      let breeds = [];
+      if (petType === "dog") { breeds = ["Labrador", "German Shepherd", "Golden Retriever", "Pug", "Beagle"]; showVaccinated(); }
+      else if (petType === "cat") { breeds = ["Persian", "Siamese", "Maine Coon", "Bengal"]; showVaccinated(); }
+      else if (petType === "bird") { breeds = ["Love Bird", "Cockatiel", "Budgerigar"]; hideVaccinated(); }
+      else if (petType === "fish") { breeds = ["Goldfish", "Guppy", "Betta"]; hideVaccinated(); }
+      breeds.forEach(b => {
+        const opt = document.createElement("option");
+        opt.value = b; opt.textContent = b;
+        breed.appendChild(opt);
+      });
+    }
+
+    function showVaccinated() {
+      document.getElementById("vaccinatedBox").style.display = "block";
+      document.getElementById("vaccinated").required = true;
+    }
+    function hideVaccinated() {
+      document.getElementById("vaccinatedBox").style.display = "none";
+      document.getElementById("vaccinated").required = false;
+      document.getElementById("vaccinated").value = "";
+    }</script>
+</body>
+
+</html>
