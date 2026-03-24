@@ -38,7 +38,7 @@ const authHelper = {
         });
 
         if (response.status === 401) {
-            // Token expired or invalid
+            //expired or invalid
             this.logout();
             throw new Error("Session expired. Please login again.");
         }

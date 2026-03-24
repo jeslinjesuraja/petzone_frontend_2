@@ -11,12 +11,11 @@
             }
 
             try {
-                // Fetch pet data to show in header and for payment
                 const res = await fetch(`${BASE_URL}/pets/${petId}`);
                 if (!res.ok) throw new Error("Pet not found");
-                const pet = await res.json();
+                const pet = await res.json(); //converts the response to a JavaScript object.
 
-                // Update UI
+                
                 document.getElementById("petName").textContent = pet.pet_name;
                 document.getElementById("displayPrice").textContent = pet.price.toLocaleString();
 
@@ -31,7 +30,7 @@
 
                 document.getElementById("waContactBtn").href = `https://wa.me/${sellerPhone}?text=Hi, I'm interested in adopting ${pet.pet_name} from PetZone!`;
 
-                // Handle Confirmation
+                
                 document.getElementById("confirmOrderBtn").onclick = () => {
                     window.location.href = `payment.html?pet_id=${pet.id}`;
                 };
