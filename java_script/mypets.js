@@ -6,7 +6,7 @@
             }
 
             try {
-                const BASE_URL = 'http://127.0.0.1:5000';
+                const BASE_URL = 'https://petzone-backend-3.onrender.com';
                 const response = await authHelper.authenticatedFetch(`${BASE_URL}/pets/my-pets`);
                 const pets = await response.json();
 
@@ -70,7 +70,7 @@
             if (!confirm("Are you sure you want to delete this pet?")) return;
 
             try {
-                const BASE_URL = 'http://127.0.0.1:5000';
+                const BASE_URL = 'https://petzone-backend-3.onrender.com';
                 const response = await authHelper.authenticatedFetch(`${BASE_URL}/pets/${petId}`, {
                     method: "DELETE"
                 });

@@ -11,7 +11,7 @@
             }
 
             try {
-                const BASE_URL = 'http://127.0.0.1:5000';
+                const BASE_URL = 'https://petzone-backend-3.onrender.com';
                 const response = await fetch(`${BASE_URL}/pets/${currentPetId}`);
                 const pet = await response.json();
 
@@ -59,7 +59,7 @@
             if (data.age_months) data.age_months = parseInt(data.age_months);
             if (data.price) data.price = parseInt(data.price);
             
-            const BASE_URL = 'http://127.0.0.1:5000';
+            const BASE_URL = 'https://petzone-backend-3.onrender.com';
             const token = authHelper.getToken();
 
             if (!token) {

@@ -1,4 +1,4 @@
-     const BASE_URL = 'http://127.0.0.1:5000';
+     const BASE_URL = 'https://petzone-backend-3.onrender.com';
 
         async function initChat() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -13,7 +13,7 @@
             try {
                 const res = await fetch(`${BASE_URL}/pets/${petId}`);
                 if (!res.ok) throw new Error("Pet not found");
-                const pet = await res.json(); //converts the response to a JavaScript object.
+                const pet = await res.json(); 
 
                 
                 document.getElementById("petName").textContent = pet.pet_name;

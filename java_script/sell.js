@@ -47,24 +47,7 @@
       document.getElementById("vaccinated").required = false;
       document.getElementById("vaccinated").value = "";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// sell.js
-const BASE_URL = 'http://127.0.0.1:5000';
+const BASE_URL = 'https://petzone-backend-3.onrender.com';
 const sellForm = document.getElementById('sellForm');
 
 // Stores all image URLs
@@ -74,7 +57,7 @@ const fileInput = document.getElementById('fileInput');
 const fileDropArea = document.getElementById('fileDropArea');
 const imagePreview = document.getElementById('imagePreview');
 
-// ───────── IMAGE MANAGEMENT ─────────
+//  IMAGE MANAGEMENT 
 if (fileDropArea) fileDropArea.onclick = () => fileInput.click();
 if (fileInput) fileInput.onchange = () => uploadFiles(Array.from(fileInput.files));
 
@@ -115,7 +98,7 @@ window.removeImage = (i) => {
     renderPreviews();
 };
 
-// ───────── FORM SUBMIT ─────────
+//  FORM SUBMIT 
 if (sellForm) {
     sellForm.onsubmit = async (e) => {
         e.preventDefault();

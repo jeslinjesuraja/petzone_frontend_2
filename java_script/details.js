@@ -9,7 +9,7 @@
             }
 
             try {
-                const BASE_URL = 'http://127.0.0.1:5000';
+                const BASE_URL = 'https://petzone-backend-3.onrender.com';
                 const response = await fetch(`${BASE_URL}/pets/${petId}`);
                 if (!response.ok) throw new Error("Pet not found");
 
@@ -25,7 +25,7 @@
 
                 const mainImg = document.getElementById("mainPetImage");
                 const thumbnailsContainer = document.getElementById("thumbnails");
-                thumbnailsContainer.innerHTML = ""; // Clear existing thumbnails
+                thumbnailsContainer.innerHTML = ""; 
 
                 if (pet.image) {
                     const images = Array.isArray(pet.image) ? pet.image : [pet.image];
@@ -34,13 +34,11 @@
                         const formatUrl = (url) => {
                             if (!url) return "https://via.placeholder.com/600x400?text=No+Image";
                             return url.startsWith('http') || url.startsWith('data:') ? url : `${BASE_URL}${url.startsWith('/') ? '' : '/'}${url}`;
-                        };
-
-                        // mainImg.src = formatUrl(images[0]);
+                        };                     
                         mainImg.loading = "lazy";
                         mainImg.src = formatUrl(images[0]);
 
-                        // Add thumbnails if there are multiple images
+                    
                         if (images.length > 1) {
                             images.forEach(imgUrl => {
                                 const fullUrl = formatUrl(imgUrl);

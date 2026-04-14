@@ -12,7 +12,7 @@ document.getElementById("msgForm").addEventListener("submit", async function (e)
       console.log("Sending:", data);
 
       try {
-        const res = await fetch("http://127.0.0.1:5000/messages/", {
+        const res = await fetch("https://petzone-backend-3.onrender.com/messages/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"

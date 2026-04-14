@@ -4,7 +4,7 @@ const searchInput = document.getElementById('petSearch');
 const noResults = document.getElementById('noResults');
 
 let allPets = [];
-const BASE_URL = 'http://127.0.0.1:5000';
+const BASE_URL = 'https://petzone-backend-3.onrender.com';
 let currentFilter = 'all';
 
 async function fetchPets() {
